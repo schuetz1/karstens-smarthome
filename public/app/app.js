@@ -1,8 +1,13 @@
-var app = angular.module('smarthome', ['ngRoute', 'smarthome.controllers.dashboard']);
+'use strict';
+angular.module('smartHome', ['ngRoute', 'smarthome.controllers.dashboard'])
+    .config(function ($routeProvider, $locationProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: '/partials/index'
+            });
 
-app.config(function($routeProvider) {
-    $routeProvider
-        .when('/', {
-            templateUrl : '/index'
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
         });
-});
+    });
